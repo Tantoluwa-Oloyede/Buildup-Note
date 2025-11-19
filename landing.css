@@ -1,0 +1,250 @@
+
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* ---- Root Variables ---- */
+:root {
+  --primary-color: #7251D5;
+  --dark-color: #000000;
+  --light-color: #f5f5f5;
+  --accent-color: #A78BFA;
+}
+
+/* ---- Reset ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(35deg, #f5f5f5, #9c9c9d);
+  color: var(--dark-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+  font-weight: 900;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #3a14aa;
+  cursor: pointer;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+/* Login Button */
+.login-btn {
+  color: white;
+  border: 2px solid #7251D5;
+  background: transparent;
+}
+
+.login-btn:hover {
+  background: #4d2ea9;
+  color: white;
+}
+
+/* Signup Button */
+.signup-btn {
+  background: #7251D5;
+  color: white;
+}
+
+.signup-btn:hover {
+  background: #4d2ea9;
+}
+
+/* Background Circles */
+.background-circles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: float 10s linear infinite;
+}
+
+.circle:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 5%;
+  background: #3803d6;
+  opacity: 0.45;
+  animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+  width: 300px;
+  height: 300px;
+  top: 60%;
+  left: 70%;
+  background: #000000;
+  opacity: 0.45;
+  animation-delay: 2s;
+}
+
+.circle:nth-child(3) {
+  width: 150px;
+  height: 150px;
+  top: 40%;
+  left: 40%;
+  background: #888888;
+  opacity: 0.45;
+  animation-delay: 4s;
+}
+
+/* Landing Container */
+.landing {
+  max-width: 800px;
+  padding: 2rem;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* App Name */
+.app-name {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #4c16ec;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  font-family: 'Times New Roman', Times, serif;
+  position: relative;
+  display: inline-block;
+}
+
+.app-name::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 6px;
+  bottom: -7px;
+  right: 0;
+  background-color: #4c16ec;
+  transition: width 0.7s ease;
+}
+
+.app-name:hover::after {
+  width: 100%;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--dark-color);
+  line-height: 1.6;
+  min-height: 50px; /* space for typing animation */
+}
+
+/* Features */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: fadeInUp 2s ease-out;
+}
+
+.feature {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  max-width: 500px;
+  margin-left: 110px;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(114, 81, 213, 0.3);
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0.3;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .app-name {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .feature {
+    font-size: 0.9rem;
+  }
+}
