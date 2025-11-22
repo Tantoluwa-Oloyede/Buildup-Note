@@ -1,0 +1,153 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0f0c0d;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* LIMIT PAGE WIDTH */
+body > * {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 40px;
+    color: #b08cf7;
+}
+
+.menu-icon, .dots-icon {
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* SEARCH SECTION */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.search-bar {
+    flex: 1;
+    background: #d3d3d3;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.search-bar input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 17px;
+}
+
+.bell-icon {
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* FILTER TABS */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 20px;
+    justify-content: center;
+}
+
+.tab {
+    background: #4b4173;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: #9c72e8;
+}
+
+/* NOTES SECTION */
+.notes-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* NOTE CARDS */
+.note-card {
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.white-card {
+    background: #ffffff;
+    color: #000;
+    border: 3px solid #9c72e8;
+}
+
+.purple-card {
+    background: #9c72e8;
+    color: #fff;
+}
+
+.note-card h2 {
+    margin-bottom: 10px;
+}
+
+.note-card p {
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.date {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* ADD BUTTON */
+.add-btn {
+    position: fixed;
+    bottom: 35px;
+    right: 25px;
+    background: #ffffff;
+    color: #000;
+    font-size: 40px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .title {
+        font-size: 32px;
+    }
+
+    .note-card {
+        padding: 18px;
+    }
+}
