@@ -6,7 +6,7 @@
 }
 
 body {
-  background: #000;
+  background: linear-gradient(135deg, #1e1e2f, #0f0f1f);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,19 +14,31 @@ body {
   min-height: 100vh;
 }
 
-.container {
-  width: 100%;
-  max-width: 450px;
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
 }
 
-.title {
-  font-size: 48px;
-  margin-bottom: 40px;
-  background: linear-gradient(90deg, #472a7c, #dad4e3);
-   /* -webkit-background-clip: text; */
-  -webkit-text-fill-color: transparent;
-  font-weight: 700;
+.subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 30px;
 }
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 50px 35px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+
 
 .signup-box input {
   width: 100%;
@@ -44,16 +56,24 @@ body {
 }
 
 .create-btn {
+  display: inline-block;
   width: 100%;
-  padding: 18px;
-  font-size: 20px;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  background: linear-gradient(90deg, #6b3de0, #3b2070);
+  padding: 16px;
+  text-align: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #7b2cff, #4a00e0);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s ease;
 }
+
+.create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
 
 .google-btn {
   width: 100%;
@@ -67,6 +87,7 @@ body {
   justify-content: center;
   gap: 12px;
   cursor: pointer;
+  margin-top: 13px;
 }
 
 .google-btn img {
@@ -74,18 +95,7 @@ body {
   height: 20px;
 }
 
-.login-text {
-  color: #fff;
-  text-align: center;
-  margin-top: 30px;
-  font-size: 16px;
-}
 
-.login-text a {
-  color: #8b4dff;
-  text-decoration: none;
-  font-weight: 600;
-}
 
 
 @media (max-width: 480px) {
