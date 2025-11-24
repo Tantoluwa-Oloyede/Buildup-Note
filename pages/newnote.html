@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new note</title>
+    <link rel="stylesheet" href="../assets/global.css">
+    <link rel="stylesheet" href="../assets/newnote.css">
+</head>
+<body>
+
+
+  
+<div class="app">
+    <!-- ✅ Sidebar -->
+  <div class="sidebar-wrapper">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>
+          <h1>BuildUp</h1>
+          <small>Notes that move</small>
+        </div>
+      </div>
+
+      <div class="nav">
+        <div class="sep"></div>
+        <a href="home.html" class="nav-link">📚 <span>Home</span></a>
+        <a href="newnote.html" class="nav-link active">✍️ <span>New Note</span></a>
+       
+        <div class="sep"></div>
+        <a href="profile.html" class="nav-link">👤 <span>Profile</span></a>
+        <a href="settings.html" class="nav-link">⚙️ <span>Settings</span></a>
+      </div>
+    </aside>
+  </div>
+
+  <main>
+
+    <!-- Header -->
+    <header class="header">
+      <button class="hamburger btn btn-ghost">☰</button>
+      <div class="searchbar">
+        🔎
+        <input placeholder="Search by title or content..." />
+        <button class="btn pill btn-ghost">Clear</button>
+      </div>
+      <div class="header-actions">
+        <button class="btn pill btn-ghost">🌗 Theme</button>
+        <button class="btn pill btn-primary">+ New note</button>
+      </div>
+    </header>
+
+
+
+  <div class="view" id="view-new-note">
+      <div class="toolbar" id="editorToolbar">
+         <div class="toolbar-group">
+          <button class="tool" data-cmd="bold"><strong>B</strong></button>
+          <button class="tool" data-cmd="italic"><em>I</em></button>
+          <button class="tool" data-cmd="underline"><u>U</u></button>
+          <button class="tool" data-cmd="insertUnorderedList">• List</button>
+         </div>
+
+         <div class="toolbar-group">
+          <select class="tool" id="headingSelect">
+            <option value="p">Paragraph</option>
+            <option value="h1">Heading 1</option>
+            <option value="h2">Heading 2</option>
+            <option value="h3">Heading 3</option>
+          </select>
+
+          <input type="color" id="textColorPicker" title="Text color" class="textColorPicker"/>
+          <input type="color" id="bgColorPicker" title="Note background" class="textcolorpicker"/>
+      </div>
+
+      <div class="tol file-tool" onclick="document.getElementById('imageInput').click()">
+        <input type="file" id="imageInput" accept="image/*" multiple />
+        <span>📷 Images</span>
+      </div>
+
+      <div class="tol file-tool" onclick="document.getElementById('pdfInput').click()">
+        <input type="file" id="pdfInput" accept="application/pdf" />
+        <span>📄 PDF</span>
+      </div>
+         
+
+         <div class="toolbar-group">
+          <button class="tool" data-cmd="justifyLeft">Left ⬅️</button>
+          <button class="tool" data-cmd="justifyCenter">Center ↔️</button>
+          <button class="tool" data-cmd="justifyRight">Right ➡️</button>
+         </div>
+
+         <div class="toolbar-group">
+          <button class="tool" data-cmd="undo"> Undo ↩️</button>
+          <button class="tool" data-cmd="redo"> Redo ↪️</button>
+          <button class="tool" id="cameraOpen">Camera</button>
+          <button class="tool" id="voiceStart">Voice</button>
+          <button class="tool" id="voiceStop" disabled>Stop</button>
+          <button class="tool" id="confetti">🎉</button>
+          <button class="tool" id="saveNote">Save</button>
+         </div>
+      </div>
+
+
+          <div class="note-editor">
+          <input type="text" id="noteTitle" placeholder="Title your note..." />
+          <div id="editor" class="editor" contenteditable="true" spellcheck="true">
+          Start writing your amazing ideas here...
+          </div>
+          </div>
+
+     </div>
+   </div>
+
+
+
+
+
+
+
+ </div>
+
+
+  </main>
+  </div>
+
+
+  <!-- <script>
+  const buttons = document.querySelectorAll(".tool[data-cmd]");
+  const editor = document.getElementById("editor");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const cmd = btn.dataset.cmd;
+      document.execCommand(cmd, false, null);
+      editor.focus();
+    });
+  });
+
+  // Heading selector
+  document.getElementById("headingSelect").addEventListener("change", function () {
+    document.execCommand("formatBlock", false, this.value);
+  });
+
+  // Text color
+  document.getElementById("textColorPicker").addEventListener("input", function () {
+    document.execCommand("foreColor", false, this.value);
+  });
+</script> -->
+
+<script src="../main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+/* NEW NOTE PAGE */
+.toolbar{
+
+  background: linear-gradient(135deg, #ffffff, #f5f5f5);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  padding: 12px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.toolbar:hover {
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+
+.toolbar-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.tool{
+  border:none;
+  background: #f0f0f0;
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor:pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.tool:hover{
+  background: #7251D5;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(114,81,213,0.25);
+}
+
+.tool.color-picker {
+  padding: 0px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+select.tool {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+input[type="file"] {
+  cursor: pointer;
+}
+
+  .note-start{
+    display:grid;
+    gap:14px;
+  }
+
+
+
+
+ .file-tool input[type="file"] {
+  display: none; /* hide the default input */
+}
+
+.file-tool span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(114,81,213,0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.file-tool span:hover {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.note-editor {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+#noteTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(114,81,213,0.05);
+  color: var(--text);
+}
+
+.editor {
+  min-height: 500px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 16px;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-y: auto;
+  background: rgba(114,81,213,0.03);
+}
+
+.editor:empty:before {
+  content: "Start writing your note here...";
+  color: #aaa;
+}
+
+.editor {
+  caret-color: #7251D5;
+  font-family: 'Inter', system-ui, sans-serif;
+  word-wrap: break-word;
+  scroll-behavior: smooth;
+}
+
+.editor:focus {
+  outline: none;
+}
+
+
+.editor:focus {
+  border-color: #7251D5;
+  box-shadow: 0 0 0 3px rgba(114,81,213,0.2);
+}
+
+.editor {
+  transition: all 0.2s ease-in-out;
+}
+.editor:focus {
+  transform: scale(1.01);
+}

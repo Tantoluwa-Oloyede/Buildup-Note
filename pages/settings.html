@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings · BuildUp</title>
+  <link rel="stylesheet" href="../assets/global.css">
+  <link rel="stylesheet" href="../assets/settings.css">
+</head>
+<body>
+  <div class="app">
+
+    <div class="sidebar-wrapper">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="logo"></div>
+          <div>
+            <h1>BuildUp</h1>
+            <small>Notes that move</small>
+          </div>
+        </div>
+
+        <div class="nav">
+          <div class="sep"></div>
+          <a href="home.html" class="nav-link">📚 <span>Home</span></a>
+          <a href="newnote.html" class="nav-link">✍️ <span>New Note</span></a>
+
+          <div class="sep"></div>
+          <a href="profile.html" class="nav-link">👤 <span>Profile</span></a>
+          <a href="settings.html" class="nav-link active">⚙️ <span>Settings</span></a>
+        </div>
+      </aside>
+    </div>
+
+    <main>
+      <header class="header">
+        <button class="hamburger btn btn-ghost">☰</button>
+        <div class="searchbar">
+          🔎
+          <input placeholder="Search settings or shortcuts..." />
+          <button class="btn pill btn-ghost">Clear</button>
+        </div>
+        <div class="header-actions">
+          <button class="btn pill btn-ghost">🌗 Theme</button>
+          <button class="btn pill btn-primary">Save changes</button>
+        </div>
+      </header>
+
+      <section class="settings-main">
+
+        <div class="settings-grid">
+
+          <div class="setting-card card">
+            <div class="card-header">
+              <div>
+                <h3>Notifications</h3>
+                <p>Pick how BuildUp taps you on the shoulder.</p>
+              </div>
+            </div>
+            <div class="notification-stack">
+              <div class="notification-item">
+                <div>
+                  <strong>Focus digest</strong>
+                  <small>Daily 8am summary</small>
+                </div>
+                <select data-pref="focusDigest">
+                  <option>Push</option>
+                  <option>Email</option>
+                  <option>SMS</option>
+                </select>
+              </div>
+              <div class="notification-item">
+                <div>
+                  <strong>Shared note edits</strong>
+                  <small>Instant alerts</small>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" checked data-pref="sharedNoteAlerts">
+                  <span></span>
+                </label>
+              </div>
+              <div class="notification-item">
+                <div>
+                  <strong>Weekly recap</strong>
+                  <small>Fridays · 4 items max</small>
+                </div>
+                <select data-pref="weeklyRecap">
+                  <option>Email</option>
+                  <option>Push</option>
+                  <option>SMS</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="setting-card card">
+            <div class="card-header">
+              <div>
+                <h3>Storage & sync</h3>
+                <p>Monitor usage and connected spaces.</p>
+              </div>
+              <button class="btn btn-ghost small" data-sync-action="manage">Manage</button>
+            </div>
+            <div class="storage-meter">
+              <div class="meter-bar">
+                <span style="width:68%"></span>
+              </div>
+              <p><strong>68%</strong> of 50 GB used</p>
+              <small>Auto clean removes archived attachments after 60 days.</small>
+            </div>
+            <div class="link-list">
+              <div>
+                <strong>Cloud vault</strong>
+                <small>Last synced 5 mins ago</small>
+              </div>
+              <button class="btn pill btn-ghost" data-sync-action="sync-now">Sync now</button>
+            </div>
+          </div>
+
+          <div class="setting-card card">
+            <div class="card-header">
+              <div>
+                <h3>Integrations</h3>
+                <p>Connect workflows, calendar, and AI copilots.</p>
+              </div>
+            </div>
+            <div class="integration-grid">
+              <div class="integration-card">
+                <strong>Notion Sync</strong>
+                <small>Mirror pinned notes.</small>
+                <button class="btn btn-ghost small" data-integration="notion">Configure</button>
+              </div>
+              <div class="integration-card">
+                <strong>Google Calendar</strong>
+                <small>Push reminders to agenda.</small>
+                <button class="btn btn-primary small" data-integration="calendar">Connected</button>
+              </div>
+              <div class="integration-card">
+                <strong>Slack Flow</strong>
+                <small>Pipe comments into #ideas.</small>
+                <button class="btn btn-ghost small" data-integration="slack">Connect</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+      </section>
+    </main>
+  </div>
+
+
+<script src="main.js"></script>
+</body>
+</html>
+

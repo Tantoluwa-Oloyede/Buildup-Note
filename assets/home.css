@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* GLOBAL */
 body {
     margin: 0;
@@ -151,3 +152,137 @@ body > * {
         padding: 18px;
     }
 }
+=======
+
+/* HOME PAGEE */
+  .top-bar{
+    align-items: center;
+    text-align: center;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin-left: 24px;
+    margin-top: 24px;
+    gap: 20px;
+    }
+
+    .card{
+    background:var(--card);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    gap: 4px;
+    position:relative;
+    overflow: hidden;
+    min-height: 275px;
+    height: auto;
+    width: 400px;
+    will-change: transform;     /* ✅ hint browser */
+    transform: translateZ(0);   /* ✅ force GPU layer */
+    }
+
+
+
+    .card .title{
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    }
+
+    .card .cont{
+    font-size: 15px;
+    font-weight: 700;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .card .list{
+    margin-top: -10px;
+    font-size: 16px;
+    font-weight: 600;
+    }
+
+
+    .card .date {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    font-size: 18px;
+    }
+
+    .card:hover {
+    animation: jump 0.4s ease;
+    }
+
+    @keyframes jump {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+    } 
+
+
+
+
+    .filter {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    }
+
+
+    .filter .tab {
+    background: #f0f0f0; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    }
+
+
+    .filter .tab:hover {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+
+    .filter .tab.active {
+    background: #000000;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+
+    .filter .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 4px;
+    border-radius: 2px;
+    background: #fff;
+    animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+    50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+    }
+>>>>>>> 9d76d69 (Added new features, renamed files, and updates)

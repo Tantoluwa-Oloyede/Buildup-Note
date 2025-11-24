@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildUp Note</title>
+    <link rel="stylesheet" href="assets/global.css">
+</head>
+
+<body>
+<div class="app">
+  <!-- Sidebar -->
+<div class="sidebar-wrapper">
+  <aside class="sidebar" id="sidebar">
+     
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+
+        <h1>BuildUp</h1>
+        <small>Notes that move</small>
+      </div>
+    </div>
+
+    <div class="nav">
+      <div class="sep"></div>
+     <a href="home.html" class="nav-link">📚 <span>Home</span></a>
+     <a href="newnote.html" class="nav-link">✍️ <span>New Note</span></a>
+
+      <div class="sep"></div>
+      <a href="profile.html" class="nav-link">👤 <span>Profile</span></a>
+      <a href="settings.html" class="nav-link">⚙️ <span>Settings</span></a>
+    </div>
+    <div class="cta">
+      <p><strong>Pro tip:</strong> Try camera capture and voice recording inside the editor!</p>
+      <button class="cta-btn" id="newNoteSidebar">+ New note</button>
+    </div>
+  </aside>
+</div>
+
+
+
+    <!-- Main -->
+  <main>
+    <header class="header">
+      <button class="hamburger btn btn-ghost" id="toggleSidebar">☰</button>
+      <div class="searchbar">
+        🔎
+        <input id="searchInput" placeholder="Search by title or content..." />
+        <button class="btn pill btn-ghost" id="clearSearch">Clear</button>
+      </div>
+      <div class="header-actions">
+        <button class="btn pill btn-ghost" id="themeToggle">🌗 Theme</button>
+        <button class="btn pill btn-primary" id="newNoteHeader">+ New note</button>
+      </div>
+    </header>
+
+  </main>
+</div>
+
+
+<script src="main.js"></script>
+  </body>
+</html>
