@@ -174,35 +174,6 @@ main{
   padding:8px 12px;
 }
 
-.storage-meter{
-  margin-top:16px;
-}
-
-.meter-bar{
-  background:rgba(255,255,255,0.07);
-  border-radius:999px;
-  height:10px;
-  margin-bottom:8px;
-  overflow:hidden;
-}
-
-.meter-bar span{
-  display:block;
-  height:100%;
-  background:linear-gradient(90deg,#7c5dff,#ff8fe0);
-  border-radius:999px;
-}
-
-.link-list{
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px solid rgba(255,255,255,0.05);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:18px;
-  flex-wrap:wrap;
-}
 
 .integration-grid{
   display:grid;

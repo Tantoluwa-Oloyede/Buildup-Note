@@ -1,11 +1,3 @@
-// ============================================
-// BUILDUP NOTE - MAIN JAVASCRIPT FILE
-// Save this as "main.js" in your project root folder
-// ============================================
-
-// ============================================
-// GLOBAL VARIABLES & INITIALIZATION
-// ============================================
 let notes = [];
 let currentNoteId = null;
 let recognition = null;
@@ -17,9 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializePage();
 });
 
-// ============================================
+
 // LOCAL STORAGE FUNCTIONS
-// ============================================
 function saveNotesToStorage() {
     localStorage.setItem('buildupNotes', JSON.stringify(notes));
 }
@@ -31,17 +22,13 @@ function loadNotesFromStorage() {
     }
 }
 
-// ============================================
+
 // PAGE INITIALIZATION
-// ============================================
 function initializePage() {
     const currentPage = window.location.pathname;
     
     // Initialize sidebar toggle
     initSidebarToggle();
-    
-    // Initialize theme toggle
-    initThemeToggle();
     
     // Initialize search functionality
     initSearch();
@@ -59,9 +46,8 @@ function initializePage() {
     initNewNoteButtons();
 }
 
-// ============================================
 // SIDEBAR TOGGLE FUNCTIONALITY
-// ============================================
+
 function initSidebarToggle() {
     const hamburger = document.querySelector('.hamburger');
     const sidebar = document.querySelector('.sidebar');
@@ -77,42 +63,9 @@ function initSidebarToggle() {
     }
 }
 
-// ============================================
-// THEME TOGGLE FUNCTIONALITY
-// ============================================
-function initThemeToggle() {
-    // Load saved theme
-    const savedTheme = localStorage.getItem('buildupTheme') || 'light';
-    document.body.setAttribute('data-theme', savedTheme);
-    
-    // Add click event to all theme buttons
-    const themeBtns = document.querySelectorAll('.btn');
-    themeBtns.forEach(btn => {
-        if (btn.textContent.includes('Theme')) {
-            btn.addEventListener('click', toggleTheme);
-        }
-    });
-}
 
-function toggleTheme() {
-    const currentTheme = document.body.getAttribute('data-theme') || 'light';
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    document.body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('buildupTheme', newTheme);
-    
-    // Update button text
-    const themeBtns = document.querySelectorAll('.btn');
-    themeBtns.forEach(btn => {
-        if (btn.textContent.includes('Theme')) {
-            btn.textContent = newTheme === 'light' ? '🌗 Theme' : '☀️ Theme';
-        }
-    });
-}
-
-// ============================================
 // SEARCH FUNCTIONALITY
-// ============================================
+
 function initSearch() {
     const searchInputs = document.querySelectorAll('.searchbar input');
     const clearBtns = document.querySelectorAll('.searchbar .btn');
@@ -155,9 +108,9 @@ function performSearch(query) {
     });
 }
 
-// ============================================
+
 // NEW NOTE BUTTONS INITIALIZATION
-// ============================================
+
 function initNewNoteButtons() {
     const newNoteBtns = document.querySelectorAll('.btn-primary, .cta-btn');
     
@@ -172,9 +125,9 @@ function initNewNoteButtons() {
     });
 }
 
-// ============================================
+
 // HOME PAGE FUNCTIONALITY
-// ============================================
+
 function initHomePage() {
     renderNotes();
     initFilterTabs();
@@ -253,9 +206,9 @@ function initFilterTabs() {
     });
 }
 
-// ============================================
+
 // NEW NOTE PAGE FUNCTIONALITY
-// ============================================
+
 function initNewNotePage() {
     // Check if editing existing note
     const editNoteId = localStorage.getItem('editNoteId');
@@ -403,6 +356,55 @@ function saveNote() {
     }, 1500);
 }
 
+function deleteNote() {
+    if (!currentNoteId) {
+        alert('No note selected to delete.');
+        return;
+    }
+
+    const confirmDelete = confirm('Are you sure you want to delete this note?');
+
+    if (!confirmDelete) return;
+
+    // Find note index
+    const index = notes.findIndex(n => n.id === currentNoteId);
+
+    if (index === -1) {
+        alert('Note not found.');
+        return;
+    }
+
+    // Remove note from array
+    notes.splice(index, 1);
+
+    // Save updated notes
+    saveNotesToStorage();
+
+    // Show success message
+    showNotification('Note deleted successfully 🗑️');
+
+    // Redirect to home after a delay
+    setTimeout(() => {
+        window.location.href = 'home.html';
+    }, 1500);
+}
+
+const deleteBtn = document.getElementById('deleteNoteBtn');
+if (deleteBtn) {
+    deleteBtn.addEventListener('click', deleteNote);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 function handleImageUpload(event) {
     const files = event.target.files;
     const editor = document.getElementById('editor');
@@ -440,63 +442,6 @@ function handlePDFUpload(event) {
     editor.appendChild(pdfDiv);
 }
 
-function openCamera() {
-    const editor = document.getElementById('editor');
-    if (!editor) return;
-    
-    // Create video element
-    const video = document.createElement('video');
-    video.style.width = '100%';
-    video.style.maxWidth = '400px';
-    video.style.borderRadius = '8px';
-    video.style.margin = '10px 0';
-    video.autoplay = true;
-    
-    // Create capture button
-    const captureBtn = document.createElement('button');
-    captureBtn.textContent = 'Capture Photo 📸';
-    captureBtn.className = 'tool';
-    captureBtn.style.margin = '10px 0';
-    
-    // Create canvas for capturing
-    const canvas = document.createElement('canvas');
-    canvas.style.display = 'none';
-    
-    // Add elements to editor
-    const cameraDiv = document.createElement('div');
-    cameraDiv.appendChild(video);
-    cameraDiv.appendChild(captureBtn);
-    cameraDiv.appendChild(canvas);
-    editor.appendChild(cameraDiv);
-    
-    // Access camera
-    navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            video.srcObject = stream;
-            
-            captureBtn.addEventListener('click', function() {
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                canvas.getContext('2d').drawImage(video, 0, 0);
-                
-                const img = document.createElement('img');
-                img.src = canvas.toDataURL('image/png');
-                img.style.maxWidth = '100%';
-                img.style.borderRadius = '8px';
-                img.style.margin = '10px 0';
-                
-                editor.appendChild(img);
-                
-                // Stop camera
-                stream.getTracks().forEach(track => track.stop());
-                cameraDiv.remove();
-            });
-        })
-        .catch(err => {
-            alert('Camera access denied or not available');
-            cameraDiv.remove();
-        });
-}
 
 function startVoiceRecording() {
     const editor = document.getElementById('editor');
@@ -563,41 +508,6 @@ function stopVoiceRecording() {
     isRecording = false;
 }
 
-function triggerConfetti() {
-    // Create confetti effect
-    for (let i = 0; i < 50; i++) {
-        createConfettiPiece();
-    }
-    
-    showNotification('Celebration! 🎉');
-}
-
-function createConfettiPiece() {
-    const confetti = document.createElement('div');
-    confetti.style.position = 'fixed';
-    confetti.style.width = '10px';
-    confetti.style.height = '10px';
-    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-    confetti.style.left = Math.random() * window.innerWidth + 'px';
-    confetti.style.top = '-10px';
-    confetti.style.borderRadius = '50%';
-    confetti.style.pointerEvents = 'none';
-    confetti.style.zIndex = '9999';
-    
-    document.body.appendChild(confetti);
-    
-    let pos = -10;
-    const fall = setInterval(() => {
-        pos += 5;
-        confetti.style.top = pos + 'px';
-        confetti.style.transform = `rotate(${pos * 2}deg)`;
-        
-        if (pos > window.innerHeight) {
-            clearInterval(fall);
-            confetti.remove();
-        }
-    }, 20);
-}
 
 function showNotification(message) {
     const notification = document.createElement('div');
@@ -620,47 +530,11 @@ function showNotification(message) {
     }, 3000);
 }
 
-// ============================================
-// LANDING PAGE FUNCTIONALITY
-// ============================================
-function initLandingPage() {
-    // Typing animation for subtitle
-    const subtitle = document.getElementById('subtitle');
-    if (subtitle) {
-        const text = subtitle.textContent;
-        subtitle.textContent = '';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                subtitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-        
-        typeWriter();
-    }
-    
-    // Reveal animation for features
-    const features = document.querySelectorAll('.feature');
-    features.forEach((feature, index) => {
-        setTimeout(() => {
-            feature.style.opacity = '0';
-            feature.style.transform = 'translateY(20px)';
-            feature.style.transition = 'all 0.5s ease';
-            
-            setTimeout(() => {
-                feature.style.opacity = '1';
-                feature.style.transform = 'translateY(0)';
-            }, 100);
-        }, index * 200);
-    });
-}
 
-// ============================================
+
+
 // RESPONSIVE HANDLING
-// ============================================
+
 window.addEventListener('resize', function() {
     const sidebar = document.querySelector('.sidebar');
     
@@ -669,9 +543,9 @@ window.addEventListener('resize', function() {
     }
 });
 
-// ============================================
+
 // ADD MOBILE STYLES DYNAMICALLY
-// ============================================
+
 const style = document.createElement('style');
 style.textContent = `
     @media (max-width: 768px) {
