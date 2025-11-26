@@ -27,8 +27,6 @@ function loadNotesFromStorage() {
 function initializePage() {
     const currentPage = window.location.pathname;
     
-    // Initialize sidebar toggle
-    initSidebarToggle();
     
     // Initialize search functionality
     initSearch();
