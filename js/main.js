@@ -46,22 +46,6 @@ function initializePage() {
     initNewNoteButtons();
 }
 
-// SIDEBAR TOGGLE FUNCTIONALITY
-
-function initSidebarToggle() {
-    const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.querySelector('.sidebar');
-    const sidebarWrapper = document.querySelector('.sidebar-wrapper');
-    
-    if (hamburger && sidebar) {
-        hamburger.addEventListener('click', function() {
-            sidebar.classList.toggle('collapsed');
-            if (sidebarWrapper) {
-                sidebarWrapper.classList.toggle('collapsed');
-            }
-        });
-    }
-}
 
 
 // SEARCH FUNCTIONALITY
@@ -238,11 +222,6 @@ function initNewNotePage() {
         pdfInput.addEventListener('change', handlePDFUpload);
     }
     
-    // Initialize camera
-    const cameraBtn = document.getElementById('cameraOpen');
-    if (cameraBtn) {
-        cameraBtn.addEventListener('click', openCamera);
-    }
     
     // Initialize voice recording
     const voiceStart = document.getElementById('voiceStart');
@@ -254,11 +233,7 @@ function initNewNotePage() {
         voiceStop.addEventListener('click', stopVoiceRecording);
     }
     
-    // Initialize confetti
-    const confettiBtn = document.getElementById('confetti');
-    if (confettiBtn) {
-        confettiBtn.addEventListener('click', triggerConfetti);
-    }
+
     
     // Initialize color pickers
     const textColorPicker = document.getElementById('textColorPicker');
@@ -394,8 +369,6 @@ const deleteBtn = document.getElementById('deleteNoteBtn');
 if (deleteBtn) {
     deleteBtn.addEventListener('click', deleteNote);
 }
-
-
 
 
 function handleImageUpload(event) {
