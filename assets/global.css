@@ -1,4 +1,11 @@
-      
+   *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+   }
+   
+
     :root{
     --primary:rgba(137, 137, 137, 0.067);
     --black:#000000;
@@ -13,8 +20,7 @@
     }
 
 
-
-    html,body{height:100%}
+    html,body{width:100%}
 
     body{
     margin:0;
@@ -22,13 +28,6 @@
     color:var(--text);
     font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
     -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-    }
-
-
-
-    a{
-    color:inherit;
-    text-decoration:none
     }
 
     .app{
@@ -53,9 +52,6 @@
     .nav-link:hover{
     background:rgba(114,81,213,0.12);
     }
-
-
-
 
 
          /* Sidebar */
