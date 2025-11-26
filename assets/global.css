@@ -60,7 +60,7 @@
 
          /* Sidebar */
   .sidebar{
-    background: #2b2b2b;
+    background: #1E1E2F;
     border-right:1px solid rgba(0,0,0,0.06);
     padding:18px;
     position:sticky;
@@ -89,11 +89,13 @@
     color: white;
 }
   .brand small{color:var(--card)}
+
   .nav{
     display:flex;
     flex-direction:column;
     gap:6px;
     margin-top:8px;
+
   }
   .nav button{
     display:flex;
@@ -159,39 +161,47 @@
     align-items:center;
     justify-content:space-between;
     padding:12px 18px;
-    background:var(--card);
+    background:#1E1E2F;
     position:sticky;
     top:0;
     z-index:10;
     border-bottom:1px solid rgba(0,0,0,0.06);
   }
 
-  .hamburger{display:none}
   .searchbar{
     flex:1;
     max-width:680px;
     display:flex;
     align-items:center;
-    background:rgba(114,81,213,0.12);
+    background: white;
     border:1px solid rgba(114,81,213,0.25);
     border-radius:12px;
     padding:8px 12px;
     gap:10px;
   }
-  .searchbar input{
-    flex:1;
-    border:none;
-    outline:none;
-    background:transparent;
-    color:var(--text);
-    font-size:14px;
-  }
+
+  .search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 12px;
+  font-weight: 700;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+  .search-input::placeholder {
+  color: #999;
+}
+
+
 
   .header-actions{
     display:flex;
     align-items:center;
     gap:10px
   }
+
   .btn{
     padding:10px 14px;
     border-radius:12px;
@@ -199,14 +209,23 @@
     cursor:pointer;
     font-weight:700;
   }
+
   .btn-primary{
     background: #7251D5;
-    color:#fff
+    color: white;
   }
+
   .btn-ghost{
+    background: transparent;
+    border: 2px solid black;
+  }
+
+  .clear{
     background:transparent;
-    border:1px solid rgba(0,0,0,0.1)
+    border:3px solid rgba(146, 0, 0, 0.1);
   }
+
   .pill{
-    border-radius:999px
+    border-radius:99px
   }
+

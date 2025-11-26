@@ -278,7 +278,8 @@ function initNewNotePage() {
             }
         });
     }
-    
+
+
     // Initialize heading selector
     const headingSelect = document.getElementById('headingSelect');
     if (headingSelect) {
@@ -393,14 +394,6 @@ const deleteBtn = document.getElementById('deleteNoteBtn');
 if (deleteBtn) {
     deleteBtn.addEventListener('click', deleteNote);
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -543,35 +536,3 @@ window.addEventListener('resize', function() {
     }
 });
 
-
-// ADD MOBILE STYLES DYNAMICALLY
-
-const style = document.createElement('style');
-style.textContent = `
-    @media (max-width: 768px) {
-        .hamburger {
-            display: block !important;
-        }
-        
-        .sidebar.collapsed {
-            transform: translateX(-100%);
-        }
-        
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-        
-        .grid {
-            grid-template-columns: 1fr !important;
-        }
-        
-        .card {
-            width: 100% !important;
-        }
-    }
-`;
-document.head.appendChild(style);

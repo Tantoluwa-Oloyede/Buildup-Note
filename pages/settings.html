@@ -34,10 +34,8 @@
 
     <main>
       <header class="header">
-        <button class="hamburger btn btn-ghost">☰</button>
         <div class="searchbar">
-          🔎
-          <input placeholder="Search settings or shortcuts..." />
+          🔎<input type="text" class="search-input"  placeholder="Search for something..." />
           <button class="btn pill btn-ghost">Clear</button>
         </div>
         <div class="header-actions">
@@ -62,11 +60,10 @@
                   <strong>Focus digest</strong>
                   <small>Daily 8am summary</small>
                 </div>
-                <select data-pref="focusDigest">
-                  <option>Push</option>
-                  <option>Email</option>
-                  <option>SMS</option>
-                </select>
+                <label class="switch">
+                  <input type="checkbox" checked data-pref="sharedNoteAlerts">
+                  <span></span>
+                </label>
               </div>
               <div class="notification-item">
                 <div>

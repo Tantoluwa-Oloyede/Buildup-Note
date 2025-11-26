@@ -13,7 +13,7 @@
     }
 
     .card{
-    background:var(--card);
+    background:white;
     border-radius:14px;
     box-shadow:var(--shadow);
     padding:10px;
@@ -71,6 +71,9 @@
     100% { transform: translateY(0); }
     } 
 
+    .cart{
+      color: white;
+    }
 
 
 
