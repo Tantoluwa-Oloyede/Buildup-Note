@@ -100,6 +100,10 @@ body {
   accent-color: #8e2de2;
 }
 
+.check{
+  margin-top: 20px;
+}
+
 .forgot {
   color: #8e2de2;
   text-decoration: none;
@@ -130,19 +134,36 @@ body {
   box-shadow: 0 10px 15px rgba(0,0,0,0.3);
 }
 
-.google-btn {
+.create-btn{
   width: 100%;
   padding: 14px;
-  background: rgba(255,255,255,0.1);
+  background: white;
   border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.3);
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bolder;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   cursor: pointer;
-  color: #fff;
+  color: #7b2cff;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 14px;
+  background: white;
+  border-radius: 18px;
+  font-size: 20px;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  color: #7b2cff;
   margin-top: 15px;
   transition: all 0.3s ease;
 }
